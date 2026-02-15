@@ -1,0 +1,246 @@
+/* ========================================
+                Typefaces
+   ======================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,100..1000;1,100..1000&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inter:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&family=Muli&family=Outfit:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+
+/* ========================================
+   MODERN CSS RESET 2024
+   Based on: Modern CSS Reset + Andy Bell + Josh Comeau
+   ======================================== */
+
+/* Universal box sizing */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* Prevent font size adjustment in landscape orientation on iOS */
+html {
+	-webkit-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+
+/* Base document configuration */
+html:focus-within {
+	scroll-behavior: smooth;
+}
+
+/* Full height for body */
+body {
+	min-height: 100dvh;
+	line-height: 1.5;
+	text-rendering: optimizeSpeed;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Text elements inherit font from parent */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+	color: inherit;
+}
+
+/* Remove default list styles on lists without class */
+ul:where([class]),
+ol:where([class]) {
+	list-style: none;
+}
+
+/* Remove list styles where role="list" is used */
+ul[role="list"],
+ol[role="list"] {
+	list-style: none;
+}
+
+/* Configuration for media elements */
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-inline-size: 100%;
+	height: auto;
+}
+
+/* Form elements inherit font */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Remove border and background from buttons */
+button {
+	border: none;
+	background: none;
+	cursor: pointer;
+}
+
+/* Remove link decoration */
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* Prevent text overflow */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+	hyphens: auto;
+}
+
+/* Create new stacking context for main elements */
+#root,
+#__next,
+main {
+	isolation: isolate;
+}
+
+/* Improve monospace font consistency */
+pre,
+code,
+kbd,
+samp {
+	font-family:
+		ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
+		"DejaVu Sans Mono", monospace;
+	font-size: 1em;
+}
+
+/* Prevent horizontal overflow */
+body {
+	overflow-x: hidden;
+}
+
+/* Table configuration */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Fieldset configuration */
+fieldset {
+	border: none;
+}
+
+/* Improve touch interaction */
+@media (hover: none) and (pointer: coarse) {
+	button,
+	a,
+	[role="button"] {
+		min-height: 44px;
+		min-width: 44px;
+	}
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms;
+		animation-iteration-count: 1;
+		transition-duration: 0.01ms;
+		scroll-behavior: auto;
+	}
+
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+}
+
+/* Improve visible focus (accessibility) */
+:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+/* Remove outline for mouse but keep it for keyboard */
+:focus:not(:focus-visible) {
+	outline: none;
+}
+
+body {
+	font-family: "Muli", sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-block: 0;
+	margin-inline: 0;
+	block-size: 100dvh;
+	inline-size: 100%;
+	overflow: hidden;
+}
+
+.container {
+	display: flex;
+	inline-size: 90vw;
+}
+
+.panel {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	block-size: 80dvh;
+	border-radius: 3.152rem;
+	color: #ffffff;
+	cursor: pointer;
+	flex: 0.5;
+	margin-inline: 0.625rem;
+	margin-block: 0.625rem;
+	position: relative;
+	transition: flex 0.7s ease-in;
+}
+
+.panel h3 {
+	font-size: 1.5rem;
+	position: absolute;
+	inset-block-end: 1.25rem;
+	inset-inline-start: 1.25rem;
+	margin-inline: 0;
+	margin-block: 0;
+	opacity: 0;
+}
+
+.panel.active {
+	flex: 5;
+	box-shadow:
+		0 0.25rem 0.75rem hsla(0, 0%, 0%, 0.24),
+		0 0.9rem 1.9rem hsla(0, 0%, 0%, 0.42);
+}
+
+.panel.active h3 {
+	opacity: 1;
+	transition: opacity 0.3s ease-in 0.4s;
+}
+
+@media (max-width: 480px) {
+	.container {
+		inline-size: 100dvw;
+	}
+
+	.panel:nth-of-type(4),
+	.panel:nth-of-type(5) {
+		display: none;
+	}
+}
